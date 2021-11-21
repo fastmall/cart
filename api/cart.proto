@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.jeongen.fastmall.cart;
+
+option go_package = "./;api";
+
+service CartService {
+  rpc GetCustomerCart (GetCustomerCartRequest) returns (GetCustomerCartResponse) {}
+}
+
+
+message GetCustomerCartRequest {
+  int64 customerId = 1;
+}
+
+
+message GetCustomerCartResponse {
+  int64 customerId = 1;
+  repeated GoodsItem list = 2;
+}
+
+message GoodsItem {
+  int64 itemId = 1;
+  string title = 2;
+}
